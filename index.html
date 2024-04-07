@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Vite App</title>
+		<link rel="stylesheet" href="src/css/style.css" />
+	</head>
+	<body>
+		<nav class="navbar">
+			<h1 class="nav-brand">Todo list</h1>
+		</nav>
+
+		<main class="container">
+			<form id="todo-list-form">
+				<div>
+					<label class="label" for="component-name">Add task</label>
+					<input
+						type="string"
+						class="input"
+						required
+						placeholder="Task title"
+						id="todo-title"
+					/>
+				</div>
+				<label>
+					<input type="checkbox" id="todo-completed" value="" /> Is completed?
+				</label>
+				<select required id="todo-category">
+					<option value="">Select category</option>
+					<option value="work">Work</option>
+					<option value="personal">Personal</option>
+				</select>
+				<input type="submit" class="btn btn-default" value="Add" />
+			</form>
+			<ul id="todo-list"></ul>
+		</main>
+
+		<script type="module" src="src/js/index.js"></script>
+	</body>
+</html>
