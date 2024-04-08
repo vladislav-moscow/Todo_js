@@ -13,7 +13,7 @@ dist
 dist-ssr
 *.local
 package-lock.json
-_gitignore
+
 
 # Editor directories and files
 .vscode/*
