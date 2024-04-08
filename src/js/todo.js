@@ -49,11 +49,8 @@ export function countTodos(todos) {
  * @returns {string|null} - Заголовок первой задачи или null, если массив пуст.
  */
 export function firstTodoTitle(todos) {
-	if (todos.length > 0) {
-    return todos[0].title;
-  } else {
-    return null;
-  }
+	todos.length > 0 ?  todos[0].title : null;
+   
 }
 
 /**
