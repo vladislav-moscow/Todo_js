@@ -13,3 +13,17 @@ export const SELECTORS = {
   category: document.querySelector("#todo-category"),
   list: document.querySelector("#todo-list"),
 };
+
+/**
+ * Объект состояния задач.
+ * @property {array} todos - Массив задач.
+ * @property {object} author - автор задачи.
+ * 
+ */
+export const STATE = {
+  todos: [],
+  author: {
+		first: "Sam",
+		last: "Blue",
+	},
+};
