@@ -1,4 +1,9 @@
-import { createTodo, addTodo, deleteTodoByIndex } from "./todo.js";
+import {
+	createTodo,
+	addTodo,
+	deleteTodoByIndex,
+	filterTasksByStatus,
+} from "./todo.js";
 import { render } from "./render.js";
 import { SELECTORS, STATE } from "./selectors.js";
 import { saveToLocalStorage, loadFromLocalStorage } from "./localStorage.js";
@@ -31,6 +36,26 @@ SELECTORS.form.addEventListener("submit", (event) => {
 	SELECTORS.completed.checked = false;
 	// Сохранение списка задач в localStorage
 	saveToLocalStorage("todos", STATE.todos);
+});
+
+// Добавьте обработчик изменения в элемент select
+SELECTORS.filterCompleted.addEventListener("change", (event) => {
+	const selectedValue = event.target.value; // Получаем выбранное значение
+	let filteredTasks;
+	// Фильтруем задачи в соответствии с выбранным значением
+	switch (selectedValue) {
+		case "completed":
+			filteredTasks = filterTasksByStatus(true); // Завершенные задачи
+			break;
+		case "uncompleted":
+			filteredTasks = filterTasksByStatus(false); // Незавершенные задачи
+			break;
+		default:
+			filteredTasks = STATE.todos; // Все задачи
+			break;
+	}
+	// Рендер отфильтрованных задач
+	render(filteredTasks);
 });
 
 /**

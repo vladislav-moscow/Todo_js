@@ -1,3 +1,4 @@
+import { STATE } from "./selectors.js";
 /**
  * Создает новый объект задачи на основе переданных данных.
  * @param {object} data - Объект с данными для создания задачи.
@@ -49,7 +50,7 @@ export function countTodos(todos) {
  * @returns {string|null} - Заголовок первой задачи или null, если массив пуст.
  */
 export function firstTodoTitle(todos) {
-	return todos.length > 0 ?  todos[0].title : null;
+	return todos.length > 0 ? todos[0].title : null;
 }
 
 /**
@@ -58,7 +59,7 @@ export function firstTodoTitle(todos) {
  * @returns {string|null} - Заголовок последней задачи или null, если массив пуст.
  */
 export function lastTodoTitle(todos) {
-	return todos.length > 0 ? todos.at(-1)?.title : null
+	return todos.length > 0 ? todos.at(-1)?.title : null;
 }
 
 /**
@@ -67,7 +68,7 @@ export function lastTodoTitle(todos) {
  * @returns {string[]} - Массив заголовков задач.
  */
 export function exportTitles(todos) {
-	return todos.map(todo => todo.title);
+	return todos.map((todo) => todo.title);
 }
 
 /**
@@ -81,5 +82,19 @@ export function deleteTodoByIndex(todos, index) {
 	if (index >= 0 && index < todos.length) {
 		todos.splice(index, 1);
 	}
-  return todos;
+	return todos;
+}
+
+/**
+ * функция фильтрации задач по статусу завершенности
+ * @param {string} status - Выбранная категория фильтрации.
+ * @returns {Todo[]} - Обновленный массив задач после фильтрации задач.
+ */
+export function filterTasksByStatus(status) {
+	// Если статус "all", возвращаем все задачи, иначе фильтруем по статусу
+	if (status === "all") {
+		return STATE.todos;
+	} else {
+		return STATE.todos.filter((task) => task.isCompleted === status);
+	}
 }
