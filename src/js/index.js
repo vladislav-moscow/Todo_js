@@ -3,6 +3,7 @@ import {
 	addTodo,
 	deleteTodoByIndex,
 	filterTasksByStatus,
+	searchTasks,
 } from "./todo.js";
 import { render } from "./render.js";
 import { SELECTORS, STATE } from "./selectors.js";
@@ -56,6 +57,17 @@ SELECTORS.filterCompleted.addEventListener("change", (event) => {
 	}
 	// Рендер отфильтрованных задач
 	render(filteredTasks);
+});
+
+/**
+ * Обработчик события поиска задач из массива задач.
+ *
+ * @param {Event} event - Объект события.
+ */
+SELECTORS.searchInput.addEventListener("input", (event) => {
+	const query = event.target.value.toLowerCase(); // Получите строку поиска и приведите ее к нижнему регистру
+	const filteredTasks = searchTasks(query); // Фильтруем задачи по запросу
+	render(filteredTasks); // Рендерим отфильтрованные задачи
 });
 
 /**

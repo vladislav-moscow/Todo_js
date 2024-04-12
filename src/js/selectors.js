@@ -5,6 +5,7 @@
  * @type {HTMLSelectElement} category - Поле выбора категории задачи.
  * @type {HTMLUListElement} list - Список для отображения задач.
  * @type {HTMLInputElement} filterCompleted - Флажок для показа завершенных задач.
+ * @type {HTMLInputElement} searchInput - Поле ввода для поиска задач.
  */
 
 export const SELECTORS = {
@@ -13,7 +14,8 @@ export const SELECTORS = {
   completed: document.querySelector("#todo-completed"),
   category: document.querySelector("#todo-category"),
   list: document.querySelector("#todo-list"),
-	filterCompleted: document.querySelector("#filterCompletedSelect"),
+	filterCompleted: document.querySelector("#filter-Completed__Select"),
+	searchInput: document.querySelector("#search-input"),
 };
 
 /**

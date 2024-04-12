@@ -13,33 +13,43 @@
 		</nav>
 
 		<main class="container">
-			<form id="todo-list-form">
-				<div>
-					<label class="label" for="component-name">Add task</label>
-					<input
-						type="string"
-						class="input"
-						required
-						placeholder="Task title"
-						id="todo-title"
-					/>
+			<section class="todo-app">
+				<form id="todo-list-form">
+					<div>
+						<label class="input-group__label" for="component-name"
+							>Добавить задачу</label
+						>
+						<input
+							type="string"
+							class="input"
+							required
+							placeholder="Название задачи"
+							id="todo-title"
+						/>
+					</div>
+					<div class="input-group">
+						<label>
+							<input type="checkbox" id="todo-completed" value="" /> Завершена?
+						</label>
+						<select required id="todo-category">
+							<option value="">Выберите категорию</option>
+							<option value="work">Работа</option>
+							<option value="personal">Личное</option>
+						</select>
+					</div>
+					<input type="submit" class="btn-add" value="Добавить" />
+				</form>
+				<div class="search-select-group">
+					<input type="text" id="search-input" placeholder="Поиск..." />
+					<select id="filter-Completed__Select">
+						<option value="all">Все</option>
+						<option value="completed">Завершенные</option>
+						<option value="uncompleted">Не завершенные</option>
+					</select>
 				</div>
-				<label>
-					<input type="checkbox" id="todo-completed" value="" /> Is completed?
-				</label>
-				<select required id="todo-category">
-					<option value="">Select category</option>
-					<option value="work">Work</option>
-					<option value="personal">Personal</option>
-				</select>
-				<input type="submit" class="btn btn-default" value="Add" />
-			</form>
-			<select id="filterCompletedSelect">
-				<option value="all">Все</option>
-				<option value="completed">Завершенные</option>
-				<option value="uncompleted">Не завершенные</option>
-			</select>
-			<ul id="todo-list"></ul>
+				
+				<ul id="todo-list"></ul>
+			</section>
 		</main>
 
 		<script type="module" src="src/js/index.js"></script>

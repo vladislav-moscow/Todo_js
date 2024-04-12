@@ -98,3 +98,12 @@ export function filterTasksByStatus(status) {
 		return STATE.todos.filter((task) => task.isCompleted === status);
 	}
 }
+
+/**
+ * Фильтрует задачи по введенному запросу.
+ * @param {string} query - Строка поиска.
+ * @returns {Array} - Массив отфильтрованных задач.
+ */
+export function searchTasks(query) {
+	return STATE.todos.filter(task => task.title.toLowerCase().includes(query));
+}
